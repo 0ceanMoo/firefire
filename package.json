@@ -1,0 +1,13 @@
+{
+  "name": "Fire",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:0ceanMoo/firefire.git",
+  "author": "Wataru <wakutsu@d-r.co.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.9.4",
+    "node-sass-import": "^2.0.1",
+    "normalize.css": "^8.0.0"
+  }
+}

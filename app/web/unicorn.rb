@@ -1,5 +1,5 @@
 @app = "/apps/Fire"
-@web = "#{@app}/web"
+@web = "#{@app}/app/web"
 @tmp = "#{@app}/tmp"
 
 working_directory @web

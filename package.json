@@ -14,6 +14,6 @@
   "scripts": {
     "watch": "concurrently 'yarn build-sass --watch'",
     "build": "yarn build-sass",
-    "build-sass": "node-sass ./web/assets/sass/app.sass ./web/public/css/app.css --output-style expanded --importer node_modules/node-sass-import"
+    "build-sass": "node-sass ./app/web/assets/sass/app.sass ./app/web/public/css/app.css --output-style expanded --importer node_modules/node-sass-import"
   }
 }

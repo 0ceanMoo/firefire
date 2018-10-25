@@ -6,6 +6,8 @@ require 'sinatra/partial'
 require "slim"
 require "sass"
 
+require "./lib/model"
+
 Slim::Engine.options[:pretty] = true if ENV["RACK_ENV"] == "development"
 Slim::Engine.set_options :streaming => false
 

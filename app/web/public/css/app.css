@@ -2592,3 +2592,7 @@ table.SampleTable thead th {
   border: .1rem solid;
   padding: .18rem 1rem;
 }
+
+._Btn {
+  padding-bottom: .5rem;
+}

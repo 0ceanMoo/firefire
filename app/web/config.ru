@@ -1,6 +1,6 @@
 root = ::File.dirname(__FILE__)
-require ::File.join(root, 'app')
+require ::File.join(root, 'controller')
 require ::File.join("#{root}/controllers", 'members')
 
-map('/') { run App }
+map('/') { run Root }
 map('/members') { run Members }

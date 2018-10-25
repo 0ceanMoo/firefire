@@ -1,4 +1,4 @@
-form#regist(method="post" action="/members/regist")
+form(method="post" action="/members/regist")
   h2 会員登録
   div
     input._Fas(type="email" name="email" placeholder="&#xf007 アカウント")
@@ -7,11 +7,5 @@ form#regist(method="post" action="/members/regist")
   div.submit
     button._Btn.--Ok 登録する
 sass:
-  #regist
-    background: #fdd
-    width: 500px
-    margin: 0 auto
-    padding: 2rem
-    text-align: center
-    input
-      width: 100%
+  input
+    width: 100%

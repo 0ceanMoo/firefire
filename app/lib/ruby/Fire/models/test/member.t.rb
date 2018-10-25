@@ -1,28 +1,38 @@
 require_relative "../../model"
 
+if 0 > 0
+  member = Model::Member.new(
+    email: "",
+    password: ""
+    #email: "hogehoge@mail.com",
+    #password: "abcde"
+  )
 
-#Model::Member.valid
-member = Model::Member.new(
-  #email: "hogehoge@mail.com",
-  #password: "abcde"
-)
-#p member
+  if member.save
+    p "Success create"
+  else
+    pp member.errors.messages
+    pp member.errors.full_messages
+    #member.errors.full_messages.each do |message|
+    #member.errors.messages.each do |messages|
+    #  p messages[0]
+    #  messages[1].each do |message|
+    #    p message
+    #  end
+    #end
+    #p member.errors
+    #p member.errors.inspect
+    #p member.errors.messages[:email]
+    #p member.errors.messages[:password]
+  end
+end
 
-#if member.save(context: :regist)
-#  p "Success"
-#else
-#  #p member.errors
-#  #p member.errors.inspect
-#  p member.errors.messages[:email]
-#  p member.errors.messages[:password]
-#end
-
-if 1 > 0
-  user = Model::Member.find(1)
+if 0 > 0
+  member = Model::Member.find(1)
   #user.nickname = "Hoge"
-  if user.save
+  if member.save
     p "Success update"
   else
-    p user.errors.messages
+    p member.errors.messages
   end
 end

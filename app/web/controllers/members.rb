@@ -1,18 +1,30 @@
 class Members < App
-  #get "/list" do
-  #  "ユーザ一覧を表示"
+  # index
+  #get "/" do
   #end
+
+  # show
   #get "/:id" do
-  #  "ユーザID#{params[:id]}の情報"
   #end
 
-  get "/regist" do
-    slim :"members/regist"
+  get "/new" do
+    @member = Model::Member.new
+    slim :"members/new"
   end
 
-  post "/regist" do
-    required_params :email, :password
+  get "/:id/edit" do
   end
 
-
+#  post "/create" do
+#    required_params :email, :password
+#    @member = Model::Member.new(params[:post])
+#
+#    if @member.save
+#      #p "success"
+#    else
+#      slim :"members/new"
+#      #p member.errors.message
+#    end
+#  end
+#
 end

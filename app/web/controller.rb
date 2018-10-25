@@ -24,6 +24,12 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  not_found do
+    'ファイルが存在しません'
+  end
+end
+
+class Root < App
   get "/" do
     @title = "slim"
     slim :index

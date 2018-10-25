@@ -13,6 +13,7 @@ gem "sass"
 
 gem "unicorn"
 
+gem 'mysql2'
 gem 'activerecord'
 #gem 'sinatra-activerecord'
 

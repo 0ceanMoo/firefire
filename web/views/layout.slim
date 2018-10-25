@@ -1,6 +1,13 @@
 doctype html
 html(lang="ja")
   head
+    meta(charset="utf8")
+    link(rel="stylesheet" href="/css/app.css")
     title #{@title}
   body
-    == yield
+    header
+      nav
+        == partial :gnav
+    main
+      == yield
+    footer

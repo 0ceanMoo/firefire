@@ -6,8 +6,14 @@
   "author": "Wataru <wakutsu@d-r.co.jp>",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^4.0.1",
     "node-sass": "^4.9.4",
     "node-sass-import": "^2.0.1",
     "normalize.css": "^8.0.0"
+  },
+  "scripts": {
+    "watch": "concurrently 'yarn build-sass --watch'",
+    "build": "yarn build-sass",
+    "build-sass": "node-sass ./web/assets/sass/app.sass ./web/public/css/app.css --output-style expanded --importer node_modules/node-sass-import"
   }
 }

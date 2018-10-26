@@ -1,4 +1,4 @@
-form(method="post" action="/members/create")
+form#regist(method="post" action="/members/create")
   h2 会員登録
   -if @member.errors.any?
     ul.error
@@ -9,5 +9,11 @@ form(method="post" action="/members/create")
     input._Fas(type="email" name="member[email]" placeholder="&#xf007 アカウント" value="#{@member.email}")
   div.__my-md
     input._Fas(type="password" name="member[password]" placeholder="&#xf023 パスワード")
-  div.submit
+  div.__center
     button._Btn.--Ok 登録する
+sass:
+  form#regist
+    //width: 80%
+    border: solid 1px #ccc
+    margin: 2rem auto
+    padding: 1rem 2rem 2rem

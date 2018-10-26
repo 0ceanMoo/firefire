@@ -1,14 +1,3 @@
-
-
-path = "/111/edit"
-if path =~ %r"/(?<id>\d+)/edit"
-  p 1
-  p $~[:id]
-else
-  p 0
-end
-
-__END__
 require_relative "../../model"
 
 if 0 > 0

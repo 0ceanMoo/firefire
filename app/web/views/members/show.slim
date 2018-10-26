@@ -1,9 +1,13 @@
 div
-  h2 会員情報
-  a(href="/members/#{@member.id}/edit") 編集
-  table
+  h2 プロフィール
+  div.__right
+    a(href="/members/#{@member.id}/edit") 編集
+  table.dl
+    //tr
+      th ID
+      td = @member.id
     tr
-      th email
+      th メールアドレス
       td = @member.email
     tr
       th ニックネーム

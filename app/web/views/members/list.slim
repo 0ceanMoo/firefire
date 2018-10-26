@@ -1,3 +1,19 @@
 div
-  h1 会員一覧
-  == partial :"members/list"
+  h2 会員一覧
+  table.li
+    thead
+      tr
+        th id
+        th nickname
+        th email
+        th.__w-80px &nbsp;
+    tbody
+    - @members.each do  |member|
+      tr
+        td = member.id
+        td = member.nickname
+        td = member.email
+        td
+          a(href="/members/#{member.id}/show") 詳細
+          span.__c-ccc &nbsp;|&nbsp;
+          a(href="/members/#{member.id}/edit") 編集

@@ -1,12 +1,12 @@
 form(method="post" action="/members/#{@member.id}/update")
-  h2 会員情報
+  h2 プロフィールの更新
   -if @member.errors.any?
     ul.error
       - @member.errors.messages.each do |errors|
         - errors[1].each do |message|
           li #{message}
   table.dl
-    tr
+    //tr
       th ID
       td.__left = @member.id
     tr
@@ -15,5 +15,5 @@ form(method="post" action="/members/#{@member.id}/update")
     tr
       th ニックネーム
       td: input(type="text" name="member[nickname]" value="#{@member.nickname}")
-  div.submit
+  div.__center.__mt-md
     button._Btn.--Ok 更新する

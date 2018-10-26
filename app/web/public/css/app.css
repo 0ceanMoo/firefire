@@ -2593,8 +2593,19 @@ table.SampleTable thead th {
   padding: .18rem 1rem;
 }
 
+body {
+  width: 800px;
+  margin: 0 auto;
+  background: #f9f9f9;
+}
+
 input {
   width: 100%;
+}
+
+a {
+  text-decoration: underline;
+  color: #77E;
 }
 
 ._Btn {

@@ -1,6 +1,17 @@
+
+
+path = "/111/edit"
+if path =~ %r"/(?<id>\d+)/edit"
+  p 1
+  p $~[:id]
+else
+  p 0
+end
+
+__END__
 require_relative "../../model"
 
-if 1 > 0
+if 0 > 0
   member = Model::Member.new(
     email: "aaa",
     password: ""

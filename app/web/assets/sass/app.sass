@@ -4,11 +4,13 @@
 @import "_layout"
 //@import "_project"
 
+input
+  width: 100%
 ._Btn
   padding-bottom: .5rem
 
 table
-  &.members
+  &.li
     @extend .#{$modif_prefix}striped
     @extend .#{$modif_prefix}hoverd
     width: 100%
@@ -16,3 +18,20 @@ table
       @extend .#{$utils_prefix}Base
       th
         border: solid 2px white
+table
+  &.dl
+    border-collapse: separate
+    border-spacing: 0 5px
+    width: 100%
+    th
+      background: #666
+      color: white
+    td
+      border: #ccc solid thin
+      padding: .8rem
+
+.error
+  margin-bottom: 1rem
+  padding: 1rem
+  background: #fcc
+  text-align: left

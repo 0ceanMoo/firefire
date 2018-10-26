@@ -1,6 +1,10 @@
 div
   h2 会員情報
+  a(href="/members/#{@member.id}/edit") 編集
   table
     tr
       th email
       td = @member.email
+    tr
+      th ニックネーム
+      td = @member.nickname

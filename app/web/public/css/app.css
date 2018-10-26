@@ -2061,7 +2061,7 @@ a {
   color: #f99;
 }
 
-.__Base, .SampleCard > h4, table.SampleTable thead, table.members thead {
+.__Base, .SampleCard > h4, table.SampleTable thead, table.li thead {
   color: white;
   background: #036;
 }
@@ -2560,11 +2560,11 @@ table {
   border-collapse: collapse;
 }
 
-table.--striped tr:nth-child(even), table.SampleTable tr:nth-child(even), table.members tr:nth-child(even) {
+table.--striped tr:nth-child(even), table.SampleTable tr:nth-child(even), table.li tr:nth-child(even) {
   background: #f3f3f3;
 }
 
-table.--hoverd tbody tr:hover, table.SampleTable tbody tr:hover, table.members tbody tr:hover {
+table.--hoverd tbody tr:hover, table.SampleTable tbody tr:hover, table.li tbody tr:hover {
   background: #ffe;
 }
 
@@ -2593,14 +2593,41 @@ table.SampleTable thead th {
   padding: .18rem 1rem;
 }
 
+input {
+  width: 100%;
+}
+
 ._Btn {
   padding-bottom: .5rem;
 }
 
-table.members {
+table.li {
   width: 100%;
 }
 
-table.members thead th {
+table.li thead th {
   border: solid 2px white;
+}
+
+table.dl {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  width: 100%;
+}
+
+table.dl th {
+  background: #666;
+  color: white;
+}
+
+table.dl td {
+  border: #ccc solid thin;
+  padding: .8rem;
+}
+
+.error {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #fcc;
+  text-align: left;
 }

@@ -1,14 +1,11 @@
 class Members < App
-  # index
   get "/" do
-    @members = Model::Member.all
     slim :"members/index"
   end
 
-  # show
-  get /\/(\d+)/ do |id|
-    @member = Model::Member.find(id)
-    slim :"members/show"
+  get "/list" do
+    @members = Model::Member.all
+    slim :"members/list"
   end
 
   get "/new" do
@@ -16,14 +13,17 @@ class Members < App
     slim :"members/new"
   end
 
-  # edit
-  get /\/(\d+)\/edit/ do |id|
+  get %r"/(\d+)", %r"/(\d+)/show" do |id|
+    @member = Model::Member.find(id)
+    slim :"members/show"
+  end
+
+  get %r"/(\d+)/edit" do |id|
     @member = Model::Member.find(id)
     slim :"members/edit"
   end
 
-  # create
-  post "/" do
+  post "/create" do
     required_params member:  [:email, :password]
     @member = Model::Member.new(params[:member])
 
@@ -31,22 +31,26 @@ class Members < App
     if @member.save
       redirect "/members/#{@member.id}"
     else
-      #p member.errors.message
+      #p @member.errors.messages
       slim :"members/new"
     end
   end
 
-  # update
-  post /\/(\d+)/ do |id|
-    required_params member:  [:email, :password, :nickname]
+  post %r"/(\d+)/update" do |id|
+    required_params member:  [:email, :nickname]
     @member = Model::Member.find(id)
 
-    if @member.update()
+    if @member.update(params[:member])
       redirect "/members/#{@member.id}"
     else
-      #p member.errors.message
+      #p @member.errors.messages
       slim :"members/edit"
     end
   end
+
+  #delete %r"/(\d+)/delete" do |id|
+  #  @member = Model::Member.find(id)
+  #  @member.destroy
+  #end
 
 end

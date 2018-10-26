@@ -1,11 +1,11 @@
 class Root < App
   get "/" do
-    @title = "slim"
+    @num = 10
     slim :index
   end
 
-  get '/search' do
-    required_params :keywords
-    params[:keywords]
+  get '/login' do
+    equired_params login: [:id, :pw]
   end
+
 end

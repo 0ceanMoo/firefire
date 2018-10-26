@@ -14,9 +14,12 @@ gem "sass"
 
 gem "unicorn"
 
+gem 'redis-rack'
+
 gem 'mysql2'
 gem 'activerecord'
 gem 'email_validator'
+gem 'bcrypt'
 
 group :development do
   gem 'foreman'

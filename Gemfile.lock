@@ -14,6 +14,7 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     backports (3.11.4)
+    bcrypt (3.1.12)
     concurrent-ruby (1.0.5)
     email_validator (1.6.0)
       activemodel
@@ -34,6 +35,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.2)
+    redis-rack (2.0.4)
+      rack (>= 1.5, < 3)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.6.0)
+      redis (>= 2.2, < 5)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -72,9 +79,11 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bcrypt
   email_validator
   foreman
   mysql2
+  redis-rack
   sass
   sinatra
   sinatra-contrib

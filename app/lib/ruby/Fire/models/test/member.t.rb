@@ -1,15 +1,26 @@
 require_relative "../../model"
 
 if 0 > 0
+  member = Model::Member.find(1)
+  password = "abcdecc"
+  if member.authenticate(password)
+    p "OK"
+  else
+    p "NG"
+  end
+
+end
+
+if 0 > 0
   member = Model::Member.new(
-    email: "aaa",
-    password: ""
-    #email: "hogehoge@mail.com",
-    #password: "abcde"
+    #email: "aaa",
+    #password: ""
+    email: "hogehoge@mail.com",
+    password: "abcde"
   )
 
-  #if member.save
-  if member.valid?
+  if member.save
+  #if member.valid?
     p "Success create"
   else
     p member.errors[:email]

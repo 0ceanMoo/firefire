@@ -6,3 +6,13 @@
 
 ._Btn
   padding-bottom: .5rem
+
+table
+  &.members
+    @extend .#{$modif_prefix}striped
+    @extend .#{$modif_prefix}hoverd
+    width: 100%
+    thead
+      @extend .#{$utils_prefix}Base
+      th
+        border: solid 2px white

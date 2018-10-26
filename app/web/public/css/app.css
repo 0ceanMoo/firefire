@@ -2061,7 +2061,7 @@ a {
   color: #f99;
 }
 
-.__Base, .SampleCard > h4, table.SampleTable thead {
+.__Base, .SampleCard > h4, table.SampleTable thead, table.members thead {
   color: white;
   background: #036;
 }
@@ -2560,11 +2560,11 @@ table {
   border-collapse: collapse;
 }
 
-table.--striped tr:nth-child(even), table.SampleTable tr:nth-child(even) {
+table.--striped tr:nth-child(even), table.SampleTable tr:nth-child(even), table.members tr:nth-child(even) {
   background: #f3f3f3;
 }
 
-table.--hoverd tbody tr:hover, table.SampleTable tbody tr:hover {
+table.--hoverd tbody tr:hover, table.SampleTable tbody tr:hover, table.members tbody tr:hover {
   background: #ffe;
 }
 
@@ -2595,4 +2595,12 @@ table.SampleTable thead th {
 
 ._Btn {
   padding-bottom: .5rem;
+}
+
+table.members {
+  width: 100%;
+}
+
+table.members thead th {
+  border: solid 2px white;
 }

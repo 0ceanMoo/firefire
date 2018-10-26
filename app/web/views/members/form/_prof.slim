@@ -1,0 +1,22 @@
+form(method="post" action="/members")
+  h2 会員登録
+  -if @member.errors.any?
+    ul.error
+      - @member.errors.messages.each do |errors|
+        - errors[1].each do |message|
+          li #{message}
+  div
+    input._Fas(type="text" name="member[email]" placeholder="&#xf007 アカウント" value="#{@member.email}")
+  div.__my-md
+    input._Fas(type="password" name="member[password]" placeholder="&#xf023 パスワード")
+  div.submit
+    button._Btn.--Ok 登録する
+
+sass:
+  input
+    width: 100%
+  .error
+    margin-bottom: 1rem
+    padding: 1rem
+    background: #fcc
+    text-align: left

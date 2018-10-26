@@ -1,6 +1,7 @@
 require 'active_record'
 require "active_support/all"
 require 'mysql2'
+require 'email_validator'
 #require "kaminari"
 
 Time.zone_default = Time.find_zone! 'Tokyo'

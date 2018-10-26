@@ -1,0 +1,15 @@
+table.members
+  thead
+    tr
+      th id
+      th nickname
+      th email
+      th &nbsp;
+  tbody
+  - @members.each do  |member|
+    tr
+      td = member.id
+      td = member.nickname
+      td = member.email
+      td: a(href="/members/#{member.id}/edit") 編集
+sass:

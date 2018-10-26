@@ -1,18 +1,23 @@
 require_relative "../../model"
 
-if 0 > 0
+if 1 > 0
   member = Model::Member.new(
-    email: "",
+    email: "aaa",
     password: ""
     #email: "hogehoge@mail.com",
     #password: "abcde"
   )
 
-  if member.save
+  #if member.save
+  if member.valid?
     p "Success create"
   else
+    p member.errors[:email]
+    p member.errors.messages[:email]
+    p member.errors.details[:email]
     pp member.errors.messages
     pp member.errors.full_messages
+    pp member.errors.details
     #member.errors.full_messages.each do |message|
     #member.errors.messages.each do |messages|
     #  p messages[0]

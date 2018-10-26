@@ -5,7 +5,24 @@ class Root < App
   end
 
   get '/login' do
-    equired_params login: [:id, :pw]
+    slim :login
+  end
+
+  post '/login' do
+    required_params :email, :password
+    @email = params[:email]
+    if member = auth(@email, params[:password])
+      login(member)
+      redirect "/"
+    else
+      @error = "ログインに失敗しました。"
+      slim :login
+    end
+  end
+
+  get '/logout' do
+    logout
+    redirect "/"
   end
 
 end

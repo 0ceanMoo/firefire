@@ -30,4 +30,26 @@ class App < Sinatra::Base
   not_found do
     'ファイルが存在しません'
   end
+
+  private
+  def auth(email, password)
+    member = Model::Member.find_by(email: email)
+    if member && member.authenticate(password)
+      return member
+    end
+    return false
+  end
+
+  def login(member)
+    session[:member_id] = member.id
+  end
+
+  def logout
+    session[:member_id] = false
+  end
+
+  def login?
+    session[:member_id]
+  end
+
 end

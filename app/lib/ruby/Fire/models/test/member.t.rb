@@ -2,7 +2,7 @@ require_relative "../../model"
 
 if 0 > 0
   member = Model::Member.find(1)
-  password = "abcdecc"
+  password = "abcde"
   if member.authenticate(password)
     p "OK"
   else

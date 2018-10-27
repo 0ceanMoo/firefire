@@ -38,35 +38,16 @@ class Root < App
     #p "last_name\t#{@auth.info.last_name}"
     #p "credentials\t#{@auth.credentials}"
 
-    @member = Model::Member.find_by(
-      provider: @auth.provider,
-      uid: @auth.uid,
-    )
-
-    if @member
-        login(@member)
-        #redirect "/"
-    else
-      @member = Model::Member.new(
-        provider: @auth.provider,
-        uid: @auth.uid,
-        name: @auth.info.name,
-        token: @auth.credentials.token,
-        secret: @auth.credentials.secret,
-      )
-
-      @member.email = @auth.info.email if @auth.info.email
-      @member.sname = @auth.info.nickname if @auth.info.nickname
-
-      if @member.save(context: :oauth)
-        login(@member)
-        #redirect "/"
-      else
-        p @member.errors
-        slim :auth
-      end
-
+    begin
+      @member = Model::Member.find_or_create_oauth(@auth)
+      login(@member)
+      redirect "/"
+    rescue => e
+      redirect "/"
+      #@errors = e
+      #slim :auth
     end
+
   end
 
   get "/auth/failure" do

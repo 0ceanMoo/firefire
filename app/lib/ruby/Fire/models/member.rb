@@ -20,5 +20,42 @@ module Model
     validates :nickname, presence: {message: "ニックネームは必須です"}, on: :update
     validates :admin, inclusion: { in: [true, false] }
 
+
+    def self.find_or_create_oauth(auth)
+      provider = auth.provider
+      uid = auth.uid
+      info = auth.info
+      credentials = auth.credentials
+
+      # validationの追加の仕方が分からない
+      #Model::Member.find_or_create_by(provider: provider, uid: uid)do |member|
+      #  member.name    = info.name
+      #  member.token   = credentials.token
+      #  member.secret  = credentials.secret
+      #  member.email   = info.email if info.email
+      #  member.sname   = info.nickname if info.nickname
+      #end
+
+      member = Model::Member.find_by(
+        provider: provider,
+        uid: uid
+      )
+
+      unless member
+        member = Model::Member.new(
+          provider: provider,
+          uid: uid,
+          name: info.name,
+          token: credentials.token,
+          secret: credentials.secret,
+        )
+        member.email = info.email if info.email
+        member.sname = info.nickname if info.nickname
+
+        member.save!(context: :oauth)
+      end
+
+      return member
+    end
   end
 end

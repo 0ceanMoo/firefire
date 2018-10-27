@@ -28,7 +28,8 @@ class Members < App
     @member = Model::Member.new(params[:member])
 
     #if @member.valid?
-    if @member.save
+    if @member.save(context: :regist)
+      login(member)
       redirect "/members/#{@member.id}"
     else
       #p @member.errors.messages

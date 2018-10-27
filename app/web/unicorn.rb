@@ -5,6 +5,6 @@
 working_directory @web
 worker_processes 1
 
-listen 9292
+listen 4567
 pid "#{@tmp}/unicorn.pid"
 

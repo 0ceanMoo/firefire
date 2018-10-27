@@ -12,6 +12,8 @@ gem 'sinatra-partial'
 gem "slim"
 gem "sass"
 
+#gem "dotenv"
+
 gem "unicorn"
 
 gem 'redis-rack'
@@ -20,6 +22,10 @@ gem 'mysql2'
 gem 'activerecord'
 gem 'email_validator'
 gem 'bcrypt'
+
+
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'foreman'

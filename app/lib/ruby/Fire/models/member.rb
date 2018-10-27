@@ -5,7 +5,7 @@ module Model
 
     with_options on: :regist do |r|
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-      r.validates :email, presence: {message: "メールアドレスは必須です"}, uniqueness: "このメールアドレスは既に登録されています", format: { with: VALID_EMAIL_REGEX, message: "メールアドレスの形式が正しくありません"}
+      r.validates :email, presence: {message: "メールアドレスは必須です"}, uniqueness: {message: "このメールアドレスは既に登録されています"}, format: { with: VALID_EMAIL_REGEX, message: "メールアドレスの形式が正しくありません"}
       r.validates :password, presence: {message: "パスワードは必須です"}, length: { in: 4..16, message: "パスワードは4-16文字です" }
     end
 

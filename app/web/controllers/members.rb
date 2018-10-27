@@ -29,7 +29,7 @@ class Members < App
 
     #if @member.valid?
     if @member.save(context: :regist)
-      login(member)
+      login(@member)
       redirect "/members/#{@member.id}"
     else
       #p @member.errors.messages

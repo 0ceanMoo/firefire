@@ -29,6 +29,7 @@ class Root < App
     # 認証情報は request.env に格納されている
     @auth = request.env["omniauth.auth"]
     #p "// ==== Login "
+    #p @auth
     #p "provider\t#{@auth.provider}"
     #p "uid\t#{@auth.uid}"
     #p "email\t#{@auth.info.email}"
@@ -36,14 +37,17 @@ class Root < App
     #p "nickname\t#{@auth.info.nickname}"
     #p "first_name\t#{@auth.info.first_name}"
     #p "last_name\t#{@auth.info.last_name}"
-    #p "credentials\t#{@auth.credentials}"
-
+    #p "token\t#{@auth.credentials.token}"
+    #p "secret\t#{@auth.credentials.secret}"
+    #p "expires\t#{@auth.credentials.expires}"
+    #p "expires_at\t#{@auth.credentials.expires_at}"
     begin
-      @member = Model::Member.find_or_create_oauth(@auth)
+      @member = Model::Member.from_omniauth(@auth)
       login(@member)
       redirect "/"
     rescue => e
-      redirect "/"
+      p e
+      #redirect "/"
       #@errors = e
       #slim :auth
     end

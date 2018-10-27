@@ -8,11 +8,18 @@ use Rack::Session::Redis, {
 }
 
 require 'omniauth'
+require 'omniauth-facebook'
 require 'omniauth-twitter'
 use OmniAuth::Builder do
   provider :twitter,
     'zPJa7tQdgNI4HVQXP2XZbXUqS',
     'pVtWKRqWNFa6L0aAaB461DFI8ZdUIlZc51KecK1nV18Jzj1U0T'
+end
+
+use OmniAuth::Builder do
+  provider :facebook,
+    "710056629350513",
+    "f64833b199b494757ab8a1e021ccab0e"
 end
 
 root = ::File.dirname(__FILE__)

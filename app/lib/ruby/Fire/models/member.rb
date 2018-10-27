@@ -5,11 +5,11 @@ module Model
 
     with_options on: :regist do |r|
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-      r.validates :email, presence: {message: "メールアドレスは必須です"}, uniqueness: {message: "このメールアドレスは既に登録されています"}, format: { with: VALID_EMAIL_REGEX, message: "メールアドレスの形式が正しくありません"}
+      r.validates :email, presence: {message: "メールアドレスは必須です"}, uniqueness: {scope: :provider,message: "このメールアドレスは既に登録されています"}, format: { with: VALID_EMAIL_REGEX, message: "メールアドレスの形式が正しくありません"}
       r.validates :password, presence: {message: "パスワードは必須です"}, length: { in: 4..16, message: "パスワードは4-16文字です" }
     end
 
-    with_options on: :oauth do |r|
+    with_options on: :twitter_login do |r|
       r.validates :provider, presence: {message: "providerは必須です"}
       r.validates :uid, presence: {message: "uidは必須です"}
       r.validates :name, presence: {message: "nameは必須です"}
@@ -17,11 +17,18 @@ module Model
       r.validates :secret, presence: {message: "secretは必須です"}
     end
 
+    with_options on: :facebook_login do |r|
+      r.validates :provider, presence: {message: "providerは必須です"}
+      r.validates :uid, presence: {message: "uidは必須です"}
+      r.validates :name, presence: {message: "nameは必須です"}
+      r.validates :token, presence: {message: "tokenは必須です"}
+      r.validates :expires_at, presence: {message: "expires_atは必須です"}
+    end
+
     validates :nickname, presence: {message: "ニックネームは必須です"}, on: :update
     validates :admin, inclusion: { in: [true, false] }
 
-
-    def self.find_or_create_oauth(auth)
+    def self.from_omniauth(auth)
       provider = auth.provider
       uid = auth.uid
       info = auth.info
@@ -35,6 +42,7 @@ module Model
       #  member.email   = info.email if info.email
       #  member.sname   = info.nickname if info.nickname
       #end
+      #
 
       member = Model::Member.find_by(
         provider: provider,
@@ -47,12 +55,15 @@ module Model
           uid: uid,
           name: info.name,
           token: credentials.token,
-          secret: credentials.secret,
         )
-        member.email = info.email if info.email
-        member.sname = info.nickname if info.nickname
+        member.secret     = credentials.secret              if credentials.secret
+        member.expires_at = Time.at(credentials.expires_at) if credentials.expires_at
 
-        member.save!(context: :oauth)
+        member.email = info.email     if info.email
+        member.sname = info.nickname  if info.nickname
+
+        context = "#{provider}_login"
+        member.save!(context: context.to_sym)
       end
 
       return member

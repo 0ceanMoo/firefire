@@ -26,6 +26,7 @@ gem 'bcrypt'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'foreman'

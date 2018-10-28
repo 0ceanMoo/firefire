@@ -16,6 +16,7 @@ class App < Sinatra::Base
   helpers Sinatra::RequiredParams
 
   configure do
+    use Rack::Flash
     register Sinatra::MultiRoute
     register Sinatra::Partial
     set :partial_template_engine, :slim

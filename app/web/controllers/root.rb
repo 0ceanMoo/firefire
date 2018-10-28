@@ -1,6 +1,7 @@
 class Root < App
   get "/" do
     @num = 10
+    @message = flash[:message]
     slim :index
   end
 
@@ -22,6 +23,7 @@ class Root < App
 
   get '/logout' do
     logout
+    flash[:message] = "ログアウトしました"
     redirect "/"
   end
 
@@ -44,6 +46,8 @@ class Root < App
     begin
       @member = Model::Member.from_omniauth(@auth)
       login(@member)
+
+      flash[:message] = "ログインしました"
       redirect "/"
     rescue => e
       p e

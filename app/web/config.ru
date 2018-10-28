@@ -1,5 +1,6 @@
 require 'rack'
 require 'rack/session/redis'
+require 'rack/flash'
 
 use Rack::Session::Redis, {
   :redis_server => "redis://localhost:6380/1",

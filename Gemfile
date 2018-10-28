@@ -33,6 +33,9 @@ gem 'omniauth-line'
 
 gem 'omniauth-google-oauth2'
 
+
+gem "rack-flash3"
+
 group :development do
   gem 'foreman'
 end

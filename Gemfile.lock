@@ -63,6 +63,8 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     rack (2.0.5)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.0.4)
       rack
     raindrops (0.19.0)
@@ -123,6 +125,7 @@ DEPENDENCIES
   omniauth-line
   omniauth-oauth2
   omniauth-twitter
+  rack-flash3
   redis-rack
   sass
   sinatra

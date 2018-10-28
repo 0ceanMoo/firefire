@@ -28,6 +28,11 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+gem "omniauth-oauth2"
+gem 'omniauth-line'
+
+gem 'omniauth-google-oauth2'
+
 group :development do
   gem 'foreman'
 end

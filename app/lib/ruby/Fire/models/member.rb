@@ -25,6 +25,22 @@ module Model
       r.validates :expires_at, presence: {message: "expires_atは必須です"}
     end
 
+    with_options on: :line_login do |r|
+      r.validates :provider, presence: {message: "providerは必須です"}
+      r.validates :uid, presence: {message: "uidは必須です"}
+      r.validates :name, presence: {message: "nameは必須です"}
+      r.validates :token, presence: {message: "tokenは必須です"}
+      r.validates :expires_at, presence: {message: "expires_atは必須です"}
+    end
+
+    with_options on: :line_google_oauth2 do |r|
+      r.validates :provider, presence: {message: "providerは必須です"}
+      r.validates :uid, presence: {message: "uidは必須です"}
+      r.validates :name, presence: {message: "nameは必須です"}
+      r.validates :token, presence: {message: "tokenは必須です"}
+      r.validates :expires_at, presence: {message: "expires_atは必須です"}
+    end
+
     validates :nickname, presence: {message: "ニックネームは必須です"}, on: :update
     validates :admin, inclusion: { in: [true, false] }
 

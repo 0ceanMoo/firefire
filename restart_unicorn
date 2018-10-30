@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/kill -s HUP `cat app/var/tmp/unicorn.pid`

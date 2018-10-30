@@ -1,6 +1,6 @@
 class Root < App
   get "/" do
-    @num = 10
+    @num = Model::Member.count
     @message = flash[:message]
     slim :index
   end

@@ -22,8 +22,10 @@ vendor/
 
 # minimal Rails specific artifacts
 db/*.sqlite3
-/log/*
-/tmp/*
+
+log
+tmp
+var
 
 # various artifacts
 **.war

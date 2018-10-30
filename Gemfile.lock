@@ -16,6 +16,7 @@ GEM
     backports (3.11.4)
     bcrypt (3.1.12)
     concurrent-ruby (1.0.5)
+    dotenv (2.5.0)
     email_validator (1.6.0)
       activemodel
     faraday (0.15.3)
@@ -116,6 +117,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
+  dotenv
   email_validator
   foreman
   mysql2

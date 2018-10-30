@@ -12,7 +12,7 @@ gem 'sinatra-partial'
 gem "slim"
 gem "sass"
 
-#gem "dotenv"
+gem "dotenv"
 
 gem "unicorn"
 

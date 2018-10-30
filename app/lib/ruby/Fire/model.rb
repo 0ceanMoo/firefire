@@ -7,7 +7,8 @@ require 'email_validator'
 Time.zone_default = Time.find_zone! 'Tokyo'
 ActiveRecord::Base.default_timezone = :local
 
-config = YAML.load_file( '/apps/Fire/app/lib/ruby/Fire/database.yml' )
+dir   = File.expand_path('../../../conf', __dir__)
+conf  = YAML.load_file( "#{dir}/Fire/database.yml" )
 ActiveRecord::Base.establish_connection(config["db"]["development"])
 
 #require_relative './memcached'

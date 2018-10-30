@@ -23,14 +23,14 @@ require 'erb'
 
 Dotenv.load File.expand_path("../../.env", __dir__) # .envを読み込む
 dir   = File.expand_path('../config', __dir__)      # ymlファイルのディレクトリ
-sns = YAML::load(ERB.new(IO.read("#{dir}/oauth.yml")).result)
+oauth = YAML::load(ERB.new(IO.read("#{dir}/oauth.yml")).result)
 
 # OAuthを利用する設定
 ["line", "twitter", "facebook", "google_oauth2"].each do |provider|
   use OmniAuth::Builder do
     provider provider.to_sym,
-      sns[provider]["key"],
-      sns[provider]["secret"]
+      oauth[provider]["key"],
+      oauth[provider]["secret"]
   end
 end
 

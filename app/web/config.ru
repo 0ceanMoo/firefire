@@ -16,11 +16,11 @@ require 'omniauth-twitter'
 require 'omniauth-line'
 require 'omniauth-google-oauth2'
 
-# OAuthのアプリIDやシークレットを読み込む
 require "dotenv"
 require 'yaml'
 require 'erb'
 
+# OAuthのアプリIDやシークレットを読み込む
 Dotenv.load File.expand_path("../../.env", __dir__) # .envを読み込む
 dir   = File.expand_path('../config', __dir__)      # ymlファイルのディレクトリ
 oauth = YAML::load(ERB.new(IO.read("#{dir}/oauth.yml")).result)

@@ -1,7 +1,7 @@
-@app = "/home/wakutsu/Fire"
-@web = "#{@app}/app/web"
-@tmp = "#{@app}/tmp"
-@log = "#{@app}/log"
+@app = "/home/wakutsu/Fire/app"
+@web = "#{@app}/web"
+@tmp = "#{@app}/var/tmp"
+@log = "#{@app}/var/log"
 
 working_directory @web
 worker_processes 1

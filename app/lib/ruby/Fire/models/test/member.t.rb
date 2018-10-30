@@ -1,7 +1,14 @@
 require_relative "../../model"
 
 # データ取得
-if 1 > 0
+if 0 > 0
+  member = Model::Member.find(1)
+  p member
+end
+
+
+#
+if 0 > 0
   member = Model::Member.find(1)
   password = "abcde"
   if member.authenticate(password)

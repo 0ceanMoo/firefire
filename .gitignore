@@ -26,6 +26,7 @@ db/*.sqlite3
 log
 tmp
 var
+.env
 
 # various artifacts
 **.war

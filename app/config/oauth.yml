@@ -1,0 +1,12 @@
+twitter:
+  key:    <%= ENV["TWITTER_CONSUMER_KEY"] %>
+  secret: <%= ENV["TWITTER_CONSUMER_SECRET"] %>
+facebook:
+  key:    <%= ENV["FACEBOOK_CONSUMER_KEY"] %>
+  secret: <%= ENV["FACEBOOK_CONSUMER_SECRET"] %>
+line:
+  key:    <%= ENV["LINE_CONSUMER_KEY"] %>
+  secret: <%= ENV["LINE_CONSUMER_SECRET"] %>
+google_oauth2:
+  key:    <%= ENV["GOOGLE_CONSUMER_KEY"] %>
+  secret: <%= ENV["GOOGLE_CONSUMER_SECRET"] %>
